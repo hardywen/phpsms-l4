@@ -1,0 +1,21 @@
+{
+  "name": "hardywen/phpsms-l4",
+  "description": "phpSms for laravel 4",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "hardywen",
+      "email": "375480616@qq.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Hardywen\\PhpSms\\": "src"
+    }
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.4.0",
+    "toplan/phpsms": "~1.2.0"
+  }
+}
