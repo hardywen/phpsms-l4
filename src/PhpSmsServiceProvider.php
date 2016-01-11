@@ -15,6 +15,7 @@ class PhpSmsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+//        $this->package('hardywen/phpsms-l4');
     }
 
     /**
@@ -31,9 +32,10 @@ class PhpSmsServiceProvider extends ServiceProvider
         Sms::enable(isset($config['enable']) ? $config['enable'] : []);
         Sms::agents(isset($config['agents']) ? $config['agents'] : []);
 
-        $this->app->singleton('phpsms-l4', function ($app) {
+        $this->app->singleton(function ($app) {
             return new Sms(false);
         });
+
     }
 
     /**
