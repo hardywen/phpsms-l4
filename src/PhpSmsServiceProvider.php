@@ -9,30 +9,20 @@ class PhpSmsServiceProvider extends ServiceProvider
 {
 
     /**
-     * Bootstrap the application events.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-//        $this->package('hardywen/phpsms-l4');
-    }
-
-    /**
      * Register the service provider.
      *
      * @return void
      */
     public function register()
     {
-        $this->package('hardywen/phpsms-l4');
+        $this->package('hardywen/phpsms-l4', null, realpath(__DIR__ . '/../src/'));
 
-        $config = $this->app->config->get('phpsms-l4::config');
+        $this->app->singleton('phpsms-l4', function ($app) {
+            $config = $app->config->get('phpsms-l4::config');
 
-        Sms::enable(isset($config['enable']) ? $config['enable'] : []);
-        Sms::agents(isset($config['agents']) ? $config['agents'] : []);
+            Sms::enable(isset($config['enable']) ? $config['enable'] : []);
+            Sms::agents(isset($config['agents']) ? $config['agents'] : []);
 
-        $this->app->singleton(function ($app) {
             return new Sms(false);
         });
 
