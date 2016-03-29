@@ -1,5 +1,5 @@
 # toplan/phpsms for laravel 4 
-
+laravel 5 版本请使用 https://github.com/toplan/laravel-sms
 #install
 ``` composer require 'hardywen/phpsms-l4' '~1.0' ```
 
